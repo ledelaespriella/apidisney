@@ -3,6 +3,8 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import db from './dataBase/db.js';
 import CharacterRouter from './routes/character.routes.js';
+import MovieRouter from './routes/movie.routes.js';
+import GenderRouter from './routes/gender.routes.js';
 
 dotenv.config();
 const app = express();
@@ -29,6 +31,8 @@ const main = async () => {
 
     // usa esta lista de rutas
     app.use('/api', CharacterRouter);
+    app.use('/api', MovieRouter);
+    app.use('/api', GenderRouter);
 
     app.listen(process.env.PORT, () => {
         console.log(`app listening at port ${process.env.PORT}`);

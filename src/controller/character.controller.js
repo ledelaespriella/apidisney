@@ -5,7 +5,9 @@ import CharacterModel from '../model/user.model.js';
 // Show all characters
 const getAllCharacters = async (req, res) => {
     try {
-        const characters = await CharacterModel.findAll();
+        const characters = await CharacterModel.findAll({
+            attributes: ['name', 'image'],
+        });
         res.json(characters);
     } catch (error) {
         res.json({ message: error.message });
@@ -18,7 +20,7 @@ const getCharacter = async (req, res) => {
         const character = await CharacterModel.findAll({
             where: { id: req.params.id },
         });
-        res.json(character);
+        res.json(character[0]);
     } catch (error) {
         res.json({ message: error.message });
     }

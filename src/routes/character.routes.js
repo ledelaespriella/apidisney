@@ -10,10 +10,10 @@ import { authMiddleware } from '../middleware/auth.middleware';
 
 const router = Router();
 
-router.get('/character', authMiddleware, getAllCharacters);
-router.get('/character/:id', authMiddleware, getCharacter);
-router.post('/character', authMiddleware, createCharacter);
-router.put('/character/:id', authMiddleware, updateCharacter);
-router.delete('/character/:id', authMiddleware, deleteCharacter);
+router.get('/characters', authMiddleware, getAllCharacters);
+router.get('/characters/:id', authMiddleware, getCharacter);
+router.post('/characters', authMiddleware, createCharacter);
+router.put('/characters/:id', authMiddleware, updateCharacter);
+router.delete('/characters/:id', authMiddleware, deleteCharacter);
 
 export default router;
