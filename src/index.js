@@ -5,9 +5,11 @@ import db from './dataBase/db.js';
 import CharacterRouter from './routes/character.routes.js';
 import MovieRouter from './routes/movie.routes.js';
 import GenderRouter from './routes/gender.routes.js';
+import UserRouter from './routes/user.routes.js';
 
 dotenv.config();
 const app = express();
+const port = process.env.PORT || 3001;
 
 const connection = async () => {
     try {
@@ -33,9 +35,10 @@ const main = async () => {
     app.use('/api', CharacterRouter);
     app.use('/api', MovieRouter);
     app.use('/api', GenderRouter);
+    app.use('/api', UserRouter);
 
     app.listen(process.env.PORT, () => {
-        console.log(`app listening at port ${process.env.PORT}`);
+        console.log(`app listening at port ${port}`);
     });
 };
 

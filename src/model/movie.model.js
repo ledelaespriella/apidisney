@@ -8,6 +8,7 @@ const MovieModel = db.define('movie', {
     creationDate: { type: DataTypes.DATE },
     qualification: { type: DataTypes.INTEGER },
     characterId: { type: DataTypes.INTEGER },
+    genderId: { type: DataTypes.INTEGER },
 });
 
 export default MovieModel;

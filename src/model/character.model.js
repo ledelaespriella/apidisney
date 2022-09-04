@@ -7,7 +7,7 @@ const CharacterModel = db.define('character', {
     age: { type: DataTypes.INTEGER },
     weight: { type: DataTypes.FLOAT },
     history: { type: DataTypes.STRING },
-    films: { type: DataTypes.STRING },
+    moviesId: { type: DataTypes.INTEGER },
 });
 
 export default CharacterModel;

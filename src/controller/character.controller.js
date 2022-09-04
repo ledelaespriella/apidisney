@@ -5,10 +5,30 @@ import CharacterModel from '../model/user.model.js';
 // Show all characters
 const getAllCharacters = async (req, res) => {
     try {
-        const characters = await CharacterModel.findAll({
-            attributes: ['name', 'image'],
-        });
-        res.json(characters);
+        const name = req.query.name;
+        const age = req.query.age;
+        const movie = req.query.movies;
+        if (name) {
+            const characters = await CharacterModel.findAll({
+                where: { name: `${name}` },
+            });
+            res.json(characters);
+        } else if (age) {
+            const characters = await CharacterModel.findAll({
+                where: { age: req.query.age },
+            });
+            res.json(characters);
+        } else if (movie) {
+            const characters = await CharacterModel.findAll({
+                where: { moviesId: req.query.movies },
+            });
+            res.json(characters);
+        } else {
+            const characters = await CharacterModel.findAll({
+                attributes: ['name', 'image'],
+            });
+            res.json(characters);
+        }
     } catch (error) {
         res.json({ message: error.message });
     }

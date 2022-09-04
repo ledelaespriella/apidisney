@@ -5,10 +5,30 @@ import MovieModel from '../model/movie.model.js';
 // Show all movies
 const getAllMovies = async (req, res) => {
     try {
-        const movies = await MovieModel.findAll({
-            attributes: ['image', 'title', 'creationDate'],
-        });
-        res.json(movies);
+        const name = req.query.name;
+        const gender = req.query.gender;
+        const order = req.query.order;
+        if (name) {
+            const movies = await MovieModel.findAll({
+                where: { title: `${name}` },
+            });
+            res.json(movies);
+        } else if (gender) {
+            const movies = await MovieModel.findAll({
+                where: { genderId: req.query.gender },
+            });
+            res.json(movies);
+        } else if (order) {
+            const movies = await MovieModel.findAll({
+                order: ['creationDate', `${order}`],
+            });
+            res.json(movies);
+        } else {
+            const movies = await MovieModel.findAll({
+                attributes: ['image', 'title', 'creationDate'],
+            });
+            res.json(movies);
+        }
     } catch (error) {
         res.json({ message: error.message });
     }
