@@ -1,7 +1,7 @@
 import db from '../dataBase/db.js';
 import { DataTypes } from 'sequelize';
 
-const MovieModel = db.define('movie', {
+const MovieModel = db.define('movies', {
     // Model attributes are defined here
     image: { type: DataTypes.STRING },
     title: { type: DataTypes.STRING },

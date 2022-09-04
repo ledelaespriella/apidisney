@@ -52,8 +52,7 @@ const login = async (req, res) => {
                         exp: Math.floor(Date.now() / 1000) + 60 * 30,
                         data: { id: verify.id, email: verify.email },
                     },
-                    process.env.JWT_SECRET,
-                    { expiresIn: '1h' }
+                    process.env.JWT_SECRET
                 );
                 return res.json({ status: true, token });
             } else {

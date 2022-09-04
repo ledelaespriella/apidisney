@@ -1,7 +1,7 @@
 import db from '../dataBase/db.js';
 import { DataTypes } from 'sequelize';
 
-const CharacterModel = db.define('character', {
+const CharacterModel = db.define('characters', {
     // Model attributes are defined here
     name: { type: DataTypes.STRING },
     age: { type: DataTypes.INTEGER },

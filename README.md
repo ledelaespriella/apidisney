@@ -109,3 +109,33 @@ De forma opcional, se podrán agregar tests de los diferentes endpoints de la AP
     ● Acceso a recursos inexistentes en endpoints de detalle
 
 #### Los tests pueden realizarse utilizando Mocha + Chai.
+
+
+# Pasos para ejecutar la API como desarrollador
+
+1. Intale el package.json con npm install
+
+2. Configure en .env con los siguientes parametros:
+
+Estos son importantes para que pueda correr el servidor:
+
+    PORT= Puerto donde correra
+    JWT_SECRET= clave secreta para la creacion del token
+    DB=nombre de la base de datos
+    DB_USER=usuario
+    DB_PASS=contraseña de la base de datos
+    API_KEY_SENDGRID= apikey de sendgrid para el envio de correos electronicos
+
+3. Ejecute lo siguiente:
+
+Para correr el servidor:
+
+    npm run start
+
+4. verificar que aparezca:
+
+En la consola:
+
+    app listening at port 3001
+    Executing (default): SELECT 1+1 AS result
+    app connect to db

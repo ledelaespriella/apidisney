@@ -19,10 +19,19 @@ const getAllMovies = async (req, res) => {
             });
             res.json(movies);
         } else if (order) {
-            const movies = await MovieModel.findAll({
-                order: ['creationDate', `${order}`],
-            });
-            res.json(movies);
+            if (order.toUpperCase() === 'ASC') {
+                const movies = await MovieModel.findAll({
+                    order: [['creationDate', 'ASC']],
+                });
+                res.json(movies);
+            } else if (order.toUpperCase() === 'movies.DSC') {
+                const movies = await MovieModel.findAll({
+                    order: [['creationDate', `DSC`]],
+                });
+                res.json(movies);
+            } else {
+                res.json({ error: 'This is not an order parameter' });
+            }
         } else {
             const movies = await MovieModel.findAll({
                 attributes: ['image', 'title', 'creationDate'],

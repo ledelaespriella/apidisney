@@ -1,4 +1,4 @@
-import CharacterModel from '../model/user.model.js';
+import CharacterModel from '../model/character.model.js';
 
 // ** CRUD** //
 
